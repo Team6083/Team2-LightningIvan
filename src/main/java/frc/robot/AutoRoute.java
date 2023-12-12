@@ -34,17 +34,21 @@ public class AutoRoute {
             SmartDashBoard.putNumber("Timer",timer.get());
         
             switch(autoSelected){
-        
+
                 case kDoForward:
                 timer.start();
               if(timer.get()<=7){
                 left.set(0.5); 
                 right.set(0.5);
                 }
-                else if(timer.get()<15){
-                left.set(-0.5); 
-                right.set(0.5);
+                else if(timer.get()<=9){
+                left.set(-0.4); 
+                right.set(0.4);
                 }
+                else if(timer.get()<=15){
+                    left.set(0.4); 
+                    right.set(0.4);
+                    }
                 timer.stop();
                 break;
                 case kDoNothing:
