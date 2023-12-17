@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class AutoRoute {
-    public static int CurrentStep = 0;
     public static Timer timer = new Timer();
     public static VictorSP left = new VictorSP(1);
     public static VictorSP right = new VictorSP(5);
@@ -30,7 +29,6 @@ public class AutoRoute {
             right.set(0);
         }
         public static void loop(){
-            SmartDashBoard.putNumber("CurrentStep",CurrentStep);
             SmartDashBoard.putNumber("Timer",timer.get());
         
             switch(autoSelected){
@@ -38,16 +36,16 @@ public class AutoRoute {
                 case kDoForward:
                 timer.start();
               if(timer.get()<=7){
-                left.set(0.5); 
+                left.set(-0.5); 
                 right.set(0.5);
                 }
                 else if(timer.get()<=9){
-                left.set(-0.4); 
+                left.set(0.4); 
                 right.set(0.4);
                 }
                 else if(timer.get()<=15){
-                    left.set(0.4); 
-                    right.set(0.4);
+                    left.set(0); 
+                    right.set(0);
                     }
                 timer.stop();
                 break;

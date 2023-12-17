@@ -23,17 +23,25 @@ public class Robot extends TimedRobot {
   VictorSP left = new VictorSP(1);
   VictorSP right = new VictorSP(5);
   
+  
    @Override
-  public void robotInit() {}
+  public void robotInit() {
+    Timer timer = new Timer();
+    AutoRoute.init();
+  }
 
   @Override
   public void robotPeriodic() {}
 
   @Override
-  public void autonomousInit() {}
+  public void autonomousInit() {
+    AutoRoute.start();
+  }
 
   @Override
-  public void autonomousPeriodic() {}
+  public void autonomousPeriodic() {
+    AutoRoute.loop();
+  }
 
   @Override
   public void teleopInit() {}
